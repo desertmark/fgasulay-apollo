@@ -5,9 +5,12 @@
 
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { GraphQLSchemaHost } from '@nestjs/graphql';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { SubgraphService } from 'fgasulay-apollo';
+
 import { AppModule } from './app.module';
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4001;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,6 +23,10 @@ async function bootstrap() {
   await app.startAllMicroservices();
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
+
+  // const subgraphService = app.get(SubgraphService);
+  // const gqlSchema = app.get(GraphQLSchemaHost).schema;
+  // subgraphService.setSchema(gqlSchema);
 }
 
 bootstrap();

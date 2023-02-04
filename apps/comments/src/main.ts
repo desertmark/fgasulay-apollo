@@ -6,8 +6,8 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+
 import { AppModule } from './app.module';
-const port = process.env.PORT || 4000;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,7 +17,8 @@ async function bootstrap() {
       servers: ['nats://localhost:4222'],
     },
   });
-  await app.startAllMicroservices();
+  app.startAllMicroservices();
+  const port = process.env.PORT || 4002;
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
