@@ -2,8 +2,9 @@ import { ApolloFederationDriver, ApolloFederationDriverConfig } from '@nestjs/ap
 import { DynamicModule, Module, OnModuleInit } from '@nestjs/common';
 import { ClientsModule, ClientOptions } from '@nestjs/microservices';
 import { GraphQLModule } from '@nestjs/graphql';
-import { InjectionTokens } from './constants';
-import { SubgraphController, SubgraphService } from './subgraph.service';
+import { InjectionTokens } from '../constants';
+import { SubgraphService } from './subgraph.service';
+import { SubgraphController } from './subgraph.controller';
 
 export interface ApolloSubgrpahModuleOptions {
   subgraphName: string;

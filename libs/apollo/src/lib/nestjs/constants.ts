@@ -1,6 +1,7 @@
 export enum InjectionTokens {
   Broker = 'broker',
   SubgraphOptions = 'subgraphOptions',
+  GatewayModuleOptions = 'gatewayModuleOptions',
 }
 
 export enum GatewayEvents {
@@ -9,9 +10,9 @@ export enum GatewayEvents {
 
 export enum SubgraphEvents {
   Schema = 'subgraph_schema',
+  ServiceDown = 'subgraph_service_down',
 }
 export interface SubgraphSchemaEvent {
-  schema: string;
   name: string;
   url: string;
 }

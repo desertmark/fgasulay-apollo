@@ -11,12 +11,14 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.connectMicroservice<MicroserviceOptions>({
-    transport: Transport.NATS,
-    options: {
-      servers: ['nats://localhost:4222'],
-    },
-  });
+  app
+    .connectMicroservice<MicroserviceOptions>({
+      transport: Transport.NATS,
+      options: {
+        servers: ['nats://localhost:4222'],
+      },
+    })
+    .enableShutdownHooks();
   app.startAllMicroservices();
   const port = process.env.PORT || 4002;
   await app.listen(port);

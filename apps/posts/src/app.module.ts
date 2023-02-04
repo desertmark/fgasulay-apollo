@@ -7,7 +7,7 @@ import { PostModule } from './modules/posts.module';
   imports: [
     ApolloSubgraphModule.register({
       subgraphName: 'posts',
-      subgraphUrl: 'http://localhost:4001',
+      subgraphUrl: 'http://localhost:4001/graphql',
       apolloServer: {
         autoSchemaFile: true,
         playground: true,

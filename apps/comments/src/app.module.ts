@@ -7,7 +7,7 @@ import { CommentsModule } from './modules/comments.module';
   imports: [
     ApolloSubgraphModule.register({
       subgraphName: 'comments',
-      subgraphUrl: 'http://localhost:4002',
+      subgraphUrl: 'http://localhost:4002/graphql',
       apolloServer: {
         autoSchemaFile: true,
         playground: true,
